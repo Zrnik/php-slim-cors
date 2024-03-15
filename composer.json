@@ -9,6 +9,11 @@
             "email": "stepan.zrnik@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Zrnik\\SlimCors\\": "src"
+        }
+    },
     "require": {
         "php": ">=8.1",
         "slim/slim": "^4"
