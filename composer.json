@@ -1,0 +1,19 @@
+{
+    "name": "zrnik/php-slim-cors",
+    "description": "Slim Framework 4 CORS ",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Štěpán Zrník",
+            "email": "stepan.zrnik@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "slim/slim": "^4"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}
