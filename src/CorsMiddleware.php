@@ -33,11 +33,13 @@ class CorsMiddleware implements MiddlewareInterface
             default => $handler->handle($request),
         };
 
-        if ($httpOrigin !== null && in_array($httpOrigin, $this->allowedOrigins, true)) {
-            $response = $response->withHeader('Access-Control-Allow-Origin', $httpOrigin);
-            $response = $response->withHeader('Access-Control-Allow-Credentials', 'true');
-            $response = $response->withHeader('Access-Control-Max-Age', '600');
-        } else if ($httpOrigin !== null && count($this->allowedOrigins) === 0) {
+        if (
+            $httpOrigin !== null
+            && (
+                in_array($httpOrigin, $this->allowedOrigins, true) // is in list of allowed origins
+                || count($this->allowedOrigins) === 0 // or "any" origin is allowed
+            )
+        ) {
             $response = $response->withHeader('Access-Control-Allow-Origin', $httpOrigin);
             $response = $response->withHeader('Access-Control-Allow-Credentials', 'true');
             $response = $response->withHeader('Access-Control-Max-Age', '600');
